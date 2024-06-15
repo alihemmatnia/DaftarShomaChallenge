@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaftarShomaChallenge.Api", "Src\DaftarShomaChallenge.Api\DaftarShomaChallenge.Api.csproj", "{0DD6FAE7-A1B0-4E18-8D53-172E9A128837}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{F544D2BB-02F4-4C49-AC58-82E853EDAE55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5F809A4E-7ED0-4CB3-9FC3-ABA7A9716825}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DD6FAE7-A1B0-4E18-8D53-172E9A128837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DD6FAE7-A1B0-4E18-8D53-172E9A128837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DD6FAE7-A1B0-4E18-8D53-172E9A128837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DD6FAE7-A1B0-4E18-8D53-172E9A128837}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0DD6FAE7-A1B0-4E18-8D53-172E9A128837} = {F544D2BB-02F4-4C49-AC58-82E853EDAE55}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDC09FDA-CBB3-42C4-97EB-2A856B7442DB}
+	EndGlobalSection
+EndGlobal
