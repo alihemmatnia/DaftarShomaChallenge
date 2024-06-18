@@ -3,11 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaftarShomaChallenge.Api", "Src\DaftarShomaChallenge.Api\DaftarShomaChallenge.Api.csproj", "{0DD6FAE7-A1B0-4E18-8D53-172E9A128837}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaftarShomaChallenge.Api", "Src\DaftarShomaChallenge.Api\DaftarShomaChallenge.Api.csproj", "{0DD6FAE7-A1B0-4E18-8D53-172E9A128837}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{F544D2BB-02F4-4C49-AC58-82E853EDAE55}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5F809A4E-7ED0-4CB3-9FC3-ABA7A9716825}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaftarShomaChallenge.Core", "Src\DaftarShomaChallenge.Core\DaftarShomaChallenge.Core.csproj", "{E4E48360-9ACB-4D54-8691-49AF498FBEC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaftarShomaChallenge.Application", "Src\DaftarShomaChallenge.Application\DaftarShomaChallenge.Application.csproj", "{487A7A2F-58E2-4369-95A7-53F6DC797CB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaftarShomaChallenge.Infrastructure", "Src\DaftarShomaChallenge.Infrastructure\DaftarShomaChallenge.Infrastructure.csproj", "{22A4FC90-3BF4-4879-A850-53E204191E34}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{2ECF8F9A-D6BD-4C90-BA62-C961D4633E1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaftarShomaChallenge.Common", "Src\Common\DaftarShomaChallenge.Common\DaftarShomaChallenge.Common.csproj", "{CA287EC9-CCD7-4BCE-A984-D512956F8ABE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,12 +29,33 @@ Global
 		{0DD6FAE7-A1B0-4E18-8D53-172E9A128837}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DD6FAE7-A1B0-4E18-8D53-172E9A128837}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DD6FAE7-A1B0-4E18-8D53-172E9A128837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4E48360-9ACB-4D54-8691-49AF498FBEC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4E48360-9ACB-4D54-8691-49AF498FBEC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4E48360-9ACB-4D54-8691-49AF498FBEC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4E48360-9ACB-4D54-8691-49AF498FBEC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{487A7A2F-58E2-4369-95A7-53F6DC797CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{487A7A2F-58E2-4369-95A7-53F6DC797CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{487A7A2F-58E2-4369-95A7-53F6DC797CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{487A7A2F-58E2-4369-95A7-53F6DC797CB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22A4FC90-3BF4-4879-A850-53E204191E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A4FC90-3BF4-4879-A850-53E204191E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A4FC90-3BF4-4879-A850-53E204191E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22A4FC90-3BF4-4879-A850-53E204191E34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA287EC9-CCD7-4BCE-A984-D512956F8ABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA287EC9-CCD7-4BCE-A984-D512956F8ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA287EC9-CCD7-4BCE-A984-D512956F8ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA287EC9-CCD7-4BCE-A984-D512956F8ABE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0DD6FAE7-A1B0-4E18-8D53-172E9A128837} = {F544D2BB-02F4-4C49-AC58-82E853EDAE55}
+		{E4E48360-9ACB-4D54-8691-49AF498FBEC1} = {F544D2BB-02F4-4C49-AC58-82E853EDAE55}
+		{487A7A2F-58E2-4369-95A7-53F6DC797CB7} = {F544D2BB-02F4-4C49-AC58-82E853EDAE55}
+		{22A4FC90-3BF4-4879-A850-53E204191E34} = {F544D2BB-02F4-4C49-AC58-82E853EDAE55}
+		{2ECF8F9A-D6BD-4C90-BA62-C961D4633E1B} = {F544D2BB-02F4-4C49-AC58-82E853EDAE55}
+		{CA287EC9-CCD7-4BCE-A984-D512956F8ABE} = {2ECF8F9A-D6BD-4C90-BA62-C961D4633E1B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CDC09FDA-CBB3-42C4-97EB-2A856B7442DB}
