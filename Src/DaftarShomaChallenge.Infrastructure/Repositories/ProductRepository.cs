@@ -52,10 +52,5 @@ namespace DaftarShomaChallenge.Infrastructure.Repositories
 			_context.Products.Remove(product);
 			return await _context.SaveChangesAsync(cancellationToken) > 0;
 		}
-
-		public Task UpdateProduct (Product product)
-		{
-			return Task.FromResult(_context.Products.Update(product));
-		}
 	}
 }
