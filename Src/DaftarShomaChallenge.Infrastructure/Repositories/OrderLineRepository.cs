@@ -1,6 +1,7 @@
 ﻿using DaftarShomaChallenge.Core.Domain.Entities;
 using DaftarShomaChallenge.Core.Repositories.Interfaces;
 using DaftarShomaChallenge.Infrastructure.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace DaftarShomaChallenge.Infrastructure.Repositories
 {
@@ -12,10 +13,25 @@ namespace DaftarShomaChallenge.Infrastructure.Repositories
 			_context = context;
 		}
 
-		public async Task<bool> AddOrderLines (List<OrderLine> orderLines, CancellationToken cancellationToken)
+		public Task<List<OrderLine>> GetOrderLine (int productId, DateTime startDate, DateTime endDate)
 		{
-			_context.OrderLines.AddRange(orderLines);
-			return await _context.SaveChangesAsync(cancellationToken) > 0;
+			return _context.OrderLines
+				.AsNoTracking()
+				.Include(x => x.Order)
+				.Include(x => x.Product)
+				.Where(o => (o.Order.Date >= startDate && o.Order.Date <= endDate)
+									&& o.Product.Id == productId)
+				.ToListAsync();
+		}
+
+		public Task<int> GetSalesCount (DateTime startDate, DateTime endDate)
+		{
+			return _context.OrderLines
+				.AsNoTracking()
+				.Include(x => x.Order)
+				.Include(x => x.Product)
+				.Where(o => o.Order.Date >= startDate && o.Order.Date <= endDate)
+				.SumAsync(x => x.Quantity);
 		}
 	}
 }

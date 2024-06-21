@@ -28,5 +28,11 @@ namespace DaftarShomaChallenge.Api.Controllers
 		{
 			return await _productApplicationService.GetProductPageable(pageable, cancellationToken);
 		}
+
+		[HttpDelete]
+		public async Task<ApiResponse> RemoveProduct([FromQuery]int productId, CancellationToken cancellationToken)
+		{
+			return await _productApplicationService.RemoveProduct(productId, cancellationToken);
+		}
 	}
 }

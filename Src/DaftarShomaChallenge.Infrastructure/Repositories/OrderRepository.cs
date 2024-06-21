@@ -24,5 +24,6 @@ namespace DaftarShomaChallenge.Infrastructure.Repositories
 			_context.Orders.Add(order);
 			return await _context.SaveChangesAsync(cancellationToken) > 0;
 		}
+
 	}
 }

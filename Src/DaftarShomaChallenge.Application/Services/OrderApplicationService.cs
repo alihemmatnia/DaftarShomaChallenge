@@ -17,10 +17,11 @@ namespace DaftarShomaChallenge.Application.Services
 		private readonly IOrderLineRepository _orderLineRepository;
 		private readonly IProductRepository _productRepository;
 		private IValidator<CreateOrderDto> _orderValidator;
+		private IValidator<GetSalesBetweenDateDto> _saleValidator;
 		private readonly IMapper _mapper;
 		private readonly ILogger<OrderApplicationService> _logger;
 
-		public OrderApplicationService (IOrderRepository orderRepository, IValidator<CreateOrderDto> orderValidator, IMapper mapper, IProductRepository productRepository, ILogger<OrderApplicationService> logger, IOrderLineRepository orderLineRepository)
+		public OrderApplicationService (IOrderRepository orderRepository, IValidator<CreateOrderDto> orderValidator, IMapper mapper, IProductRepository productRepository, ILogger<OrderApplicationService> logger, IOrderLineRepository orderLineRepository, IValidator<GetSalesBetweenDateDto> saleValidator )
 		{
 			_orderRepository = orderRepository;
 			_orderValidator = orderValidator;
@@ -28,6 +29,7 @@ namespace DaftarShomaChallenge.Application.Services
 			_productRepository = productRepository;
 			_logger = logger;
 			_orderLineRepository = orderLineRepository;
+			_saleValidator = saleValidator;
 		}
 
 		public async Task<ApiResponseWithListError> CreateOrder (CreateOrderDto dto, CancellationToken cancellationToken)
@@ -69,7 +71,7 @@ namespace DaftarShomaChallenge.Application.Services
 					{
 						Sucess = false,
 						StatusCode = HttpStatusCode.NotFound,
-						ErrorMessages = [$"product {line.ProductId} not found"]
+						ErrorMessages = [$"محصول {line.ProductId} پیدا نشد"]
 					};
 				}
 
@@ -77,7 +79,7 @@ namespace DaftarShomaChallenge.Application.Services
 				order.AddOrderLine(orderLine);
 			}
 			#endregion
-			
+
 			order.CalcTotalPrice();
 
 			var result = await _orderRepository.CreateOrder(order, cancellationToken);
@@ -98,6 +100,57 @@ namespace DaftarShomaChallenge.Application.Services
 				Sucess = false,
 				Message = "مشکل در ثبت سفارش وجود دارد",
 				StatusCode = HttpStatusCode.InternalServerError
+			};
+		}
+
+		public async Task<ApiResponse> GetWeeklySales (int productId, CancellationToken cancellationToken)
+		{
+			var product = await _productRepository.GetOne(productId, cancellationToken);
+			if (product == null)
+			{
+				_logger.LogError("[GetWeeklySales] product with id:{id} not found", productId);
+				return new ApiResponse()
+				{
+					Sucess = false,
+					StatusCode = HttpStatusCode.NotFound,
+					ErrorMessage = "محصول پیدا نشد"
+				};
+			}
+
+			var startDate = DateTime.Now.AddDays(-7);
+			var orderLine = await _orderLineRepository.GetOrderLine(productId, startDate, DateTime.Now);
+			
+			var saleCount = orderLine.Sum(x => x.Quantity);
+			var saleTotalPrice = orderLine.Sum(x => x.Price);
+
+			return new ApiResponse()
+			{
+				Message = $"در هفت روز گرشته محصول {product.Title} به تعداد {saleCount} و قیمت کل {saleTotalPrice} فروخته شده است",
+				StatusCode = HttpStatusCode.OK,
+				Sucess = true
+			};
+		}
+
+		public async Task<ApiResponseWithListError> GetSalesBetweenDate (GetSalesBetweenDateDto dto)
+		{
+			var validationResult = _saleValidator.Validate(dto);
+			if (!validationResult.IsValid)
+			{
+				_logger.LogError("[CreateOrder] failed validation Order");
+				return new ApiResponseWithListError()
+				{
+					ErrorMessages = validationResult.Errors.Select(x => x.ErrorMessage).ToList(),
+					Sucess = false,
+					StatusCode = HttpStatusCode.BadRequest
+				};
+			}
+
+			var salesCount = await _orderLineRepository.GetSalesCount(dto.StartDate, dto.EndDate);
+			return new ApiResponseWithListError()
+			{
+				Message = $"در این بازه تعداد {salesCount} محصول فروخته شده است",
+				StatusCode = HttpStatusCode.OK,
+				Sucess = true
 			};
 		}
 	}

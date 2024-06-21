@@ -11,5 +11,6 @@ namespace DaftarShomaChallenge.Core.Repositories.Interfaces
 		Task<Product> GetOne (int productId, CancellationToken cancellationToken);
 		Task<List<Product>> GetAll (List<int> productIds, CancellationToken cancellationToken);
 		Task<PageableResponse<Product>> GetPageable(Pageable pageable, CancellationToken cancellationToken);
+		Task<Product> GetOneWithInclude (int productId, CancellationToken cancellationToken);
 	}
 }

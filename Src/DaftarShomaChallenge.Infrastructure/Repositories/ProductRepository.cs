@@ -33,6 +33,15 @@ namespace DaftarShomaChallenge.Infrastructure.Repositories
 			return _context.Products.FirstOrDefaultAsync(x => x.Id == productId, cancellationToken);
 		}
 
+		public Task<Product> GetOneWithInclude (int productId, CancellationToken cancellationToken)
+		{
+			return _context.Products
+				.AsNoTracking()
+				.Include(x => x.OrderLines)
+				.ThenInclude(x => x.Order)
+				.FirstOrDefaultAsync(x => x.Id == productId, cancellationToken);
+		}
+
 		public Task<PageableResponse<Product>> GetPageable (Pageable pageable, CancellationToken cancellationToken)
 		{
 			return _context.Products.UsePageableAsync(pageable, cancellationToken);

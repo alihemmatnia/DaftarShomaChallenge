@@ -8,6 +8,7 @@ namespace DaftarShomaChallenge.Core.Domain.Entities
 		public int Price { get; private set; }
 
 		public Product Product { get; private set; }
+		public Order Order { get; private set; }
 
 		public OrderLine ()
 		{

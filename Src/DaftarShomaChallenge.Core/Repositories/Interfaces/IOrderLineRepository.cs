@@ -4,6 +4,7 @@ namespace DaftarShomaChallenge.Core.Repositories.Interfaces
 {
 	public interface IOrderLineRepository
 	{
-		Task<bool> AddOrderLines (List<OrderLine> orderLines, CancellationToken cancellationToken);
+		Task<int> GetSalesCount (DateTime startDate, DateTime endDate);
+		Task<List<OrderLine>> GetOrderLine (int productId, DateTime startDate, DateTime endDate);
 	}
 }

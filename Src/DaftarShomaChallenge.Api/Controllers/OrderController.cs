@@ -1,9 +1,6 @@
 ﻿using DaftarShomaChallenge.Application.DTOs.Order;
-using DaftarShomaChallenge.Application.DTOs.Product;
-using DaftarShomaChallenge.Application.Services;
 using DaftarShomaChallenge.Application.Services.Interfaces;
 using DaftarShomaChallenge.Common.DTOs;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DaftarShomaChallenge.Api.Controllers

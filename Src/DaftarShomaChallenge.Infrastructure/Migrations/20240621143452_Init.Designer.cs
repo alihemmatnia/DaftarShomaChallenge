@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DaftarShomaChallenge.Infrastructure.Migrations
 {
     [DbContext(typeof(DaftarShomaDbContext))]
-    [Migration("20240621134230_Init")]
+    [Migration("20240621143452_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -56,7 +56,7 @@ namespace DaftarShomaChallenge.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("OrderId")
+                    b.Property<int>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<int>("Price")
@@ -99,16 +99,19 @@ namespace DaftarShomaChallenge.Infrastructure.Migrations
 
             modelBuilder.Entity("DaftarShomaChallenge.Core.Domain.Entities.OrderLine", b =>
                 {
-                    b.HasOne("DaftarShomaChallenge.Core.Domain.Entities.Order", null)
+                    b.HasOne("DaftarShomaChallenge.Core.Domain.Entities.Order", "Order")
                         .WithMany("OrderLines")
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DaftarShomaChallenge.Core.Domain.Entities.Product", "Product")
                         .WithMany("OrderLines")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Order");
 
                     b.Navigation("Product");
                 });
