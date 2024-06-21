@@ -7,17 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaftarShomaChallenge.Api", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{F544D2BB-02F4-4C49-AC58-82E853EDAE55}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5F809A4E-7ED0-4CB3-9FC3-ABA7A9716825}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaftarShomaChallenge.Core", "Src\DaftarShomaChallenge.Core\DaftarShomaChallenge.Core.csproj", "{E4E48360-9ACB-4D54-8691-49AF498FBEC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaftarShomaChallenge.Core", "Src\DaftarShomaChallenge.Core\DaftarShomaChallenge.Core.csproj", "{E4E48360-9ACB-4D54-8691-49AF498FBEC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaftarShomaChallenge.Application", "Src\DaftarShomaChallenge.Application\DaftarShomaChallenge.Application.csproj", "{487A7A2F-58E2-4369-95A7-53F6DC797CB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaftarShomaChallenge.Application", "Src\DaftarShomaChallenge.Application\DaftarShomaChallenge.Application.csproj", "{487A7A2F-58E2-4369-95A7-53F6DC797CB7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaftarShomaChallenge.Infrastructure", "Src\DaftarShomaChallenge.Infrastructure\DaftarShomaChallenge.Infrastructure.csproj", "{22A4FC90-3BF4-4879-A850-53E204191E34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaftarShomaChallenge.Infrastructure", "Src\DaftarShomaChallenge.Infrastructure\DaftarShomaChallenge.Infrastructure.csproj", "{22A4FC90-3BF4-4879-A850-53E204191E34}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{2ECF8F9A-D6BD-4C90-BA62-C961D4633E1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaftarShomaChallenge.Common", "Src\Common\DaftarShomaChallenge.Common\DaftarShomaChallenge.Common.csproj", "{CA287EC9-CCD7-4BCE-A984-D512956F8ABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaftarShomaChallenge.Common", "Src\Common\DaftarShomaChallenge.Common\DaftarShomaChallenge.Common.csproj", "{CA287EC9-CCD7-4BCE-A984-D512956F8ABE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
