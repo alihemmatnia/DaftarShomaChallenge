@@ -11,9 +11,8 @@ namespace DaftarShomaChallenge.Infrastructure.Data.Context
 		}
 
 		public DbSet<Product> Products { get; set; }
-		public DbSet<OrderLine> OrderLines{ get; set; }
+		public DbSet<OrderLine> OrderLines { get; set; }
 		public DbSet<Order> Orders { get; set; }
-
 
 		protected override void OnModelCreating (ModelBuilder modelBuilder)
 		{

@@ -9,21 +9,27 @@ namespace DaftarShomaChallenge.Core.Domain.Entities
 		public long TotalPrice { get; private set; }
 		public DateTime Date { get; private set; }
 
-		public Order (string number)
+        public Order ()
 		{
-			Number = number;
 			Date = DateTime.Now;
 		}
 
 		#region Behaviour
 		public void AddOrderLine (OrderLine line)
 		{
+			if(OrderLines == null) OrderLines = [];
+
 			OrderLines.Add(line);
 		}
 
-		public void SetTotalPrice (long totalPrice)
+		public void CalcTotalPrice ()
 		{
-			TotalPrice = totalPrice;
+			TotalPrice = OrderLines.Sum(o => o.Price); 
+		}
+
+		public void SetNumber (string number)
+		{
+			Number = number;
 		}
 		#endregion
 	}

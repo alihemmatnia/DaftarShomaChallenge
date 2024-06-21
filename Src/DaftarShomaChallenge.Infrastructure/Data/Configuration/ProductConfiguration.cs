@@ -1,11 +1,6 @@
 ﻿using DaftarShomaChallenge.Core.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DaftarShomaChallenge.Infrastructure.Data.Configuration
 {
@@ -13,6 +8,8 @@ namespace DaftarShomaChallenge.Infrastructure.Data.Configuration
 	{
 		public void Configure (EntityTypeBuilder<Product> builder)
 		{
+			builder.HasMany(x => x.OrderLines).WithOne(x => x.Product)
+				.OnDelete(DeleteBehavior.Cascade);
 		}
 	}
 }

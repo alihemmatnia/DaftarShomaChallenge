@@ -8,7 +8,7 @@ namespace DaftarShomaChallenge.Infrastructure.Data.Configuration
 	{
 		public void Configure (EntityTypeBuilder<OrderLine> builder)
 		{
-			builder.HasOne(x => x.Product).WithMany();
+			
 		}
 	}
 }

@@ -10,8 +10,4 @@
     <ProjectReference Include="..\Common\DaftarShomaChallenge.Common\DaftarShomaChallenge.Common.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>

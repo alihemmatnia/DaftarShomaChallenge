@@ -8,7 +8,9 @@ namespace DaftarShomaChallenge.Infrastructure.Data.Configuration
 	{
 		public void Configure (EntityTypeBuilder<Order> builder)
 		{
-			builder.HasMany(x => x.OrderLines).WithOne();
+			builder.HasMany(x => x.OrderLines)
+				.WithOne()
+				.OnDelete(DeleteBehavior.Cascade);
 		}
 	}
 }

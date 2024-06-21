@@ -1,15 +1,28 @@
+using DaftarShomaChallenge.Application;
+using DaftarShomaChallenge.Core;
+using DaftarShomaChallenge.Infrastructure;
+using DaftarShomaChallenge.Common.Configuration.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// logger config
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
+builder.Services
+	.AddDbContextConfig(builder.Configuration);
+builder.Services
+	.AddApplicationService()
+	.AddInfrastructureService()
+	.AddCoreService();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();

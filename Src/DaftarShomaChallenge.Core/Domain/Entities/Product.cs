@@ -2,38 +2,44 @@
 
 namespace DaftarShomaChallenge.Core.Domain.Entities
 {
-    public class Product : BaseEntity<int>
-    {
-        public string Title { get; private set; }
-        public int Price { get; private set; }
+	public class Product : BaseEntity<int>
+	{
+		public string Title { get; private set; }
+		public int Price { get; private set; }
 
-        public Product(string title, int price)
+		public List<OrderLine> OrderLines { get;private set; }
+
+        public Product()
         {
-            ProductTitleValidation(title);
-            Title = title;
-            Price = price;
+            
         }
+        public Product (string title, int price)
+		{
+			ProductTitleValidation(title);
+			Title = title;
+			Price = price;
+		}
 
-        #region Behaviour
+		#region Behaviour
 
-        public void ChangeTitle(string title)
-        {
-            ProductTitleValidation(title);
-            Title = title;
-        }
+		public void ChangeTitle (string title)
+		{
+			ProductTitleValidation(title);
+			Title = title;
+		}
 
-        public void ChangePrice(int price)
-        {
-            Price = price;
-        }
+		public void ChangePrice (int price)
+		{
+			Price = price;
+		}
 
-        #endregion
+		#endregion
 
 
-        private void ProductTitleValidation(string title)
-        {
-            if (string.IsNullOrWhiteSpace(title))
-                throw new Exception("product title can't be empty or null");
-        }
-    }
+		private void ProductTitleValidation (string title)
+		{
+			if (string.IsNullOrWhiteSpace(title))
+				throw new Exception("product title can't be empty or null");
+		}
+	}
 }
